@@ -2,7 +2,7 @@
 replicaCount: 2
 image:
   repository: enricay/express-harness
-  tag: 29163f0
+  tag: 4be5b16
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
