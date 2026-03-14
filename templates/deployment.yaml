@@ -16,4 +16,4 @@ spec:
         - name: express-harness
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
-            - containerPort: 3000
+            - containerPort: {{ .Values.service.targetPort }}
