@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-harness
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: express-harness
+  template:
+    metadata:
+      labels:
+        app: express-harness
+    spec:
+      containers:
+        - name: express-harness
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 3000

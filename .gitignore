@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Helm
+*.tgz
+Chart.lock
+charts/*.tgz
+
+# Editors
+.vscode/
+.idea/
+*.swp
