@@ -3,7 +3,7 @@ replicaCount: 2
 
 image:
   repository: enricay/express-harness
-  tag: master
+  tag: 965f77d
   pullPolicy: IfNotPresent
 
 service:
