@@ -1,18 +1,23 @@
-
+# values.yaml
 replicaCount: 2
+
 image:
   repository: enricay/express-harness
-  tag: 4be5b16
+  tag: 965f77d
   pullPolicy: IfNotPresent
+
 service:
   type: ClusterIP
   port: 80
   targetPort: 8080
+
 ingress:
   enabled: true
   className: nginx
-  host: harness.connectus.capplc.com
+  host: harness-express.connectus.capplc.com
   path: /
   tls:
     enabled: true
     secretName: harness-tls
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
