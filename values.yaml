@@ -1,17 +1,21 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: harness
-  labels:
-    app: harness
-spec:
-  type: {{ .Values.service.type }}
-  selector:
-    app: harness
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
-      protocol: TCP
-      name: http
 
+replicaCount: 2
 
+image:
+  repository: enricay/express-harness
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  className: nginx
+  host: harness.connectus.capplc.com
+  path: /
+  tls:
+    enabled: true
+    secretName: harness-tls
